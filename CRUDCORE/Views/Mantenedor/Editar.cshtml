@@ -1,0 +1,61 @@
+﻿@model ContactoModel
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+  <div class="card-header">
+    Editar Medicamento
+  </div>
+  <div class="card-body">
+    
+
+      <form asp-action="Editar" asp-controller="Mantenedor" method="post">
+
+          <input asp-for="Id" type="hidden" class="form-control">
+          <div class="mb-3">
+              <label class="form-label">Nombre</label>
+              <input asp-for="Nombre" type="text" class="form-control">
+              <span asp-validation-for="Nombre" class="text-danger"></span>
+          </div>
+          <div class="mb-3">
+              <label class="form-label">Concentracion</label>
+              <input asp-for="Concentracion" type="text" class="form-control">
+              <span asp-validation-for="Concentracion" class="text-danger"></span>
+          </div>
+          <div class="mb-3">
+              <label class="form-label">FormaFarmaceutica</label>
+              <select class="form-control" name="IdFormaFarmaceutica" runat="server" id="IdFormaFarmaceutica" asp-for="IdFormaFarmaceutica">
+                  <option value="1">TABLETA</option>
+                  <option value="2">PASTILLA</option>
+                  <option value="3">JARABE</option>
+              </select>
+          </div>
+
+          <div class="mb-3">
+              <label class="form-label">Precio</label>
+              <input asp-for="Precio" type="text" class="form-control">
+              <span asp-validation-for="Precio" class="text-danger"></span>
+          </div>
+          <div class="mb-3">
+              <label class="form-label">Stock</label>
+              <input asp-for="Stock" type="text" class="form-control">
+              <span asp-validation-for="Stock" class="text-danger"></span>
+          </div>
+          <div class="mb-3">
+              <label class="form-label">FormaFarmaceutica</label>
+              <select class="form-control" name="IdEstatus" runat="server" id="IdEstatus" asp-for="IdEstatus">
+                  <option value="1">Activo</option>
+                  <option value="0">InActivo</option>
+              </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <a asp-action="Listar" asp-controller="Mantenedor" class="btn btn-warning">Volver a la lista</a>
+      </form>
+
+
+  </div>
+</div>
+

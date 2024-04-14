@@ -1,0 +1,57 @@
+﻿@model List<ContactoModel>
+@{
+    ViewData["Title"] = "Listar Medicamentos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="card">
+  <div class="card-header">
+    Lista Medicamentos
+  </div>
+  <div class="card-body">
+    
+    <div class="table-responsive">
+        <table id="myTable" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Concentracion</th>
+                    <th>FormasFarmaceuticas</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Presentacion</th>
+                    <th>Estatus</th>
+                    <th>Acciones</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.Concentracion</td>
+                        <td>@item.FormasFarmaceuticas</td>
+                        <td>@item.Precio</td>
+                        <td>@item.Stock</td>
+                        <td>@item.Presentacion</td>
+                        <td>@item.Estatus</td>
+
+                        <td>
+                            <a asp-action="Editar" asp-controller="Mantenedor" class="btn btn-primary btn-sm" asp-route-Id="@item.Id">Editar</a>
+                            <a asp-action="Eliminar" asp-controller="Mantenedor" class="btn btn-danger btn-sm" asp-route-Id="@item.Id">Eliminar</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+
+  </div>
+</div>
+
